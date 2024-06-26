@@ -9,10 +9,11 @@ export class UsersService {
     private users = [];
     //Method to create a new user
     createUser(createUserDTO: createUserDTO) {
-        //create a new user object including a generated id and properties
+        //create a new user object including a generated id, time of creation and properties
         //of createUserDto
         const user = {
             id: uuidv4(),
+            createdAt: new Date().toUTCString(), 
             ...createUserDTO,
         };
         this.users.push(user); //adding the new user to the users array
